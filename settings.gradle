@@ -1,0 +1,6 @@
+rootProject.name = 'LaundryBookingSpring'
+
+include 'core'
+include 'persistence'
+include 'rest-app'
+include 'web-app'
