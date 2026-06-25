@@ -1,4 +1,4 @@
-package com.example.jpa;
+package com.example.user;
 
 public enum UserRole {
     USER,

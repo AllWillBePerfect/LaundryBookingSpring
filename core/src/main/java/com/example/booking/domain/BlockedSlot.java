@@ -1,7 +1,11 @@
 package com.example.booking.domain;
 
+import com.example.common.domain.DomainValidation;
+import com.example.common.domain.TimeRange;
+
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public record BlockedSlot(
         Long id,
@@ -12,4 +16,21 @@ public record BlockedSlot(
         Long createdBy,
         Instant createdAt
 ) {
+
+    public BlockedSlot {
+        DomainValidation.requirePositiveIfPresent(id, "id");
+        DomainValidation.requirePositive(machineId, "machineId");
+        DomainValidation.requireNonNull(startTime, "startTime");
+        DomainValidation.requireNonNull(endTime, "endTime");
+        DomainValidation.requireNotNullOrBlank(reason, "reason");
+        DomainValidation.requirePositive(createdBy, "createdBy");
+        DomainValidation.requireNonNull(createdAt, "createdAt");
+
+        new TimeRange(startTime, endTime);
+    }
+
+    public TimeRange timeRange() {
+        return new TimeRange(startTime, endTime);
+    }
+
 }
