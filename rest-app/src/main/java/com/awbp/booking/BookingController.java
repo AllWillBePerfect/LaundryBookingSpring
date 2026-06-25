@@ -1,8 +1,8 @@
 package com.awbp.booking;
 
-import com.example.booking.application.BookingService;
-import com.example.booking.command.CreateBookingCommand;
-import com.example.common.security.AuthenticatedUser;
+import com.awbp.booking.application.BookingService;
+import com.awbp.booking.command.CreateBookingCommand;
+import com.awbp.common.security.AuthenticatedUser;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

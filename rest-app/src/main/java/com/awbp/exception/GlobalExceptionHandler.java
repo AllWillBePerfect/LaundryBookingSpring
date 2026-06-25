@@ -1,6 +1,5 @@
 package com.awbp.exception;
 
-import com.example.exception.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;

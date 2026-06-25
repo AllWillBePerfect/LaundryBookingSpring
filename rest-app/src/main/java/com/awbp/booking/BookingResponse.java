@@ -1,6 +1,6 @@
 package com.awbp.booking;
 
-import com.example.booking.domain.Booking;
+import com.awbp.booking.domain.Booking;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
