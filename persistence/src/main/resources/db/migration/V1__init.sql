@@ -1,10 +1,11 @@
 CREATE TABLE users
 (
-    id           BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    username     VARCHAR(100) NOT NULL,
-    display_name VARCHAR(200) NOT NULL,
-    role         VARCHAR(20)  NOT NULL,
-    created_at   TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
+    id            BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username      VARCHAR(100) NOT NULL,
+    display_name  VARCHAR(200) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    role          VARCHAR(20)  NOT NULL,
+    created_at    TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
     CONSTRAINT uq_users_username UNIQUE (username)
 );
 
@@ -38,3 +39,17 @@ CREATE TABLE bookings
 CREATE INDEX idx_bookings_machine_start ON bookings (machine_id, start_time);
 CREATE INDEX idx_bookings_user_id ON bookings (user_id);
 CREATE INDEX idx_bookings_status ON bookings (status);
+
+
+CREATE TABLE refresh_tokens
+(
+    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id     BIGINT       NOT NULL,
+    token_hash  VARCHAR(255) NOT NULL,
+    expires_at  TIMESTAMPTZ  NOT NULL,
+    revoked     BOOLEAN      NOT NULL DEFAULT FALSE,
+    created_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_refresh_user FOREIGN KEY (user_id) REFERENCES users (id),
+    CONSTRAINT uq_refresh_token_hash UNIQUE (token_hash)
+);
+CREATE INDEX idx_refresh_user_id ON refresh_tokens (user_id);

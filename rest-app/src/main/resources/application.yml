@@ -2,3 +2,10 @@ spring:
   security:
     user:
       name: user
+
+app:
+  jwt:
+    secret: ${APP_JWT_SECRET:dev-secret-key-min-32-characters-long-for-hs256}
+    expiration-ms: ${JWT_EXPIRATION_MS:900000}
+  refresh:
+    ttl-days: 14

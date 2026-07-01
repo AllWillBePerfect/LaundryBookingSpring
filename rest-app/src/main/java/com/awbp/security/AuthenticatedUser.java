@@ -1,4 +1,4 @@
-package com.awbp.common.security;
+package com.awbp.security;
 
 import com.awbp.user.UserRole;
 
