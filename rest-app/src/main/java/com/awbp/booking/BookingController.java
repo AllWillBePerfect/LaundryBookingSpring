@@ -1,7 +1,9 @@
 package com.awbp.booking;
 
 import com.awbp.booking.application.BookingService;
+import com.awbp.booking.command.CancelBookingCommand;
 import com.awbp.booking.command.CreateBookingCommand;
+import com.awbp.booking.command.SubmitPaymentCommand;
 import com.awbp.security.AuthenticatedUser;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,11 +20,6 @@ import java.util.List;
 public class BookingController {
 
     private final BookingService bookingService;
-
-    @GetMapping
-    public ResponseEntity<String> start() {
-        return ResponseEntity.ok("bookings!!!");
-    }
 
     @PostMapping
     public ResponseEntity<BookingResponse> createBooking(
@@ -44,6 +41,35 @@ public class BookingController {
                 .stream().map(BookingResponse::from).toList();
 
         return ResponseEntity.ok(bookings);
+    }
+
+    @PostMapping("/{id}/pay")
+    public ResponseEntity<BookingResponse> pay(
+            @AuthenticationPrincipal AuthenticatedUser currentUser,
+            @PathVariable Long id
+    ) {
+        var booking = bookingService.submitPayment(
+                new SubmitPaymentCommand(id, currentUser.userId()));
+        return ResponseEntity.ok(BookingResponse.from(booking));
+    }
+
+    @PostMapping("/{id}/cancel")
+    public ResponseEntity<BookingResponse> cancel(
+            @AuthenticationPrincipal AuthenticatedUser currentUser,
+            @PathVariable Long id
+    ) {
+        var booking = bookingService.cancelBooking(
+                new CancelBookingCommand(id, currentUser.userId()));
+        return ResponseEntity.ok(BookingResponse.from(booking));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BookingResponse> getById(
+            @AuthenticationPrincipal AuthenticatedUser currentUser,
+            @PathVariable Long id
+    ) {
+        var booking = bookingService.getBooking(id, currentUser.userId());
+        return ResponseEntity.ok(BookingResponse.from(booking));
     }
 
 

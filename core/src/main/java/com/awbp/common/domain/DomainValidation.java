@@ -28,4 +28,6 @@ public final class DomainValidation {
             throw new IllegalArgumentException(fieldName + " must not be blank");
         }
     }
+
+
 }

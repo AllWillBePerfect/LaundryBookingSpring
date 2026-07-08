@@ -3,6 +3,7 @@ package com.awbp.booking.application;
 import com.awbp.booking.command.CancelBookingCommand;
 import com.awbp.booking.command.CreateBookingCommand;
 import com.awbp.booking.command.ReviewBookingCommand;
+import com.awbp.booking.command.SubmitPaymentCommand;
 import com.awbp.booking.domain.Booking;
 import com.awbp.booking.domain.BookingStatus;
 import com.awbp.booking.machine.application.MachineRepository;
@@ -83,6 +84,24 @@ public class BookingService {
 
         Booking cancelled = copyWithStatus(booking, BookingStatus.CANCELLED, null, null);
         return bookingRepository.save(cancelled);
+    }
+
+    @Transactional
+    public Booking submitPayment(SubmitPaymentCommand command) {
+        Booking booking = bookingRepository.findById(command.bookingId())
+                .orElseThrow(() -> new BookingNotFoundException(command.bookingId()));
+
+        if (!booking.userId().equals(command.userId())) {
+            throw new AccessDeniedToBookingException();
+        }
+        if (booking.status() != BookingStatus.CREATED) {
+            throw new InvalidBookingStateException(
+                    "Booking cannot be submitted from status: " + booking.status());
+        }
+
+        Booking submitted = copyWithStatus(
+                booking, BookingStatus.WAITING_PAYMENT_CONFIRMATION, null, null);
+        return bookingRepository.save(submitted);
     }
 
     @Transactional

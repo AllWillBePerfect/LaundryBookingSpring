@@ -1,13 +1,34 @@
+-- CREATE TABLE users
+-- (
+--     id            BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--     username      VARCHAR(100) NOT NULL,
+--     display_name  VARCHAR(200) NOT NULL,
+--     password_hash VARCHAR(255) NOT NULL,
+--     role          VARCHAR(20)  NOT NULL,
+--     created_at    TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
+--     CONSTRAINT uq_users_username UNIQUE (username)
+-- );
+
 CREATE TABLE users
 (
-    id            BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    username      VARCHAR(100) NOT NULL,
-    display_name  VARCHAR(200) NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    role          VARCHAR(20)  NOT NULL,
-    created_at    TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
-    CONSTRAINT uq_users_username UNIQUE (username)
+    id           BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    display_name VARCHAR(200) NOT NULL,
+    role         VARCHAR(20)  NOT NULL,
+    created_at   TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE user_identities
+(
+    id               BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id          BIGINT       NOT NULL,
+    provider         VARCHAR(20)  NOT NULL,
+    provider_user_id VARCHAR(255) NOT NULL,
+    secret           VARCHAR(255),
+    created_at       TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_identity_user FOREIGN KEY (user_id) REFERENCES users (id),
+    CONSTRAINT uq_identity UNIQUE (provider, provider_user_id)
+);
+CREATE INDEX idx_identity_user_id ON user_identities (user_id);
 
 CREATE TABLE machines
 (
@@ -17,6 +38,19 @@ CREATE TABLE machines
     active      BOOLEAN      NOT NULL DEFAULT TRUE,
     created_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE blocked_slots
+(
+    id         BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    machine_id BIGINT       NOT NULL,
+    start_time TIMESTAMP    NOT NULL,
+    end_time   TIMESTAMP    NOT NULL,
+    reason     VARCHAR(500) NOT NULL,
+    created_by BIGINT       NOT NULL,
+    created_at TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_blocked_machine FOREIGN KEY (machine_id) REFERENCES machines (id)
+);
+CREATE INDEX idx_blocked_machine ON blocked_slots (machine_id);
 
 CREATE TABLE bookings
 (
