@@ -10,8 +10,25 @@ import static org.junit.jupiter.api.Assertions.*;
 class DomainValidationTest {
 
     @Test
-    void given_when_then() {
+    void givenPositiveValue_whenRequirePositiveIfPresent_thenComplete() {
+        assertDoesNotThrow(() -> DomainValidation.requirePositiveIfPresent(1L, "userId"));
+    }
 
+    @Test
+    void givenNullValue_whenRequirePositiveIfPresent_thenComplete() {
+        assertDoesNotThrow(() -> DomainValidation.requirePositiveIfPresent(null, "userId"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(longs = {0L, -1L})
+    void givenNonPositiveValue_whenRequirePositiveIfPresent_thenThrownIllegalArgumentException(long value) {
+        var ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> DomainValidation.requirePositiveIfPresent(value, "userId")
+        );
+
+        assertTrue(ex.getMessage().contains("userId"));
+        assertTrue(ex.getMessage().contains("must be positive"));
     }
 
     @ParameterizedTest
@@ -21,6 +38,7 @@ class DomainValidationTest {
                 IllegalArgumentException.class,
                 () -> DomainValidation.requirePositive(value, "userId")
         );
+
         assertTrue(ex.getMessage().contains("userId"));
         assertTrue(ex.getMessage().contains("must be positive"));
     }
@@ -52,14 +70,40 @@ class DomainValidationTest {
 
         assertTrue(ex.getMessage().contains("userName"));
         assertTrue(ex.getMessage().contains("must not be null"));
-
     }
 
     @Test
     void givenNotNullValue_whenRequireNonNull_thenComplete() {
-
         assertDoesNotThrow(() -> DomainValidation.requireNonNull("John", "userName"));
-
     }
 
+    @Test
+    void givenNullValue_whenRequireNotNullOrBlank_thenThrownIllegalArgumentException() {
+
+        var ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> DomainValidation.requireNotNullOrBlank(null, "userName")
+        );
+
+        assertTrue(ex.getMessage().contains("userName"));
+        assertTrue(ex.getMessage().contains("must not be blank"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", " "})
+    void givenBlankValues_whenRequireNotNullOrBlank_thenThrownIllegalArgumentException(String value) {
+
+        var ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> DomainValidation.requireNotNullOrBlank(value, "userName")
+        );
+
+        assertTrue(ex.getMessage().contains("userName"));
+        assertTrue(ex.getMessage().contains("must not be blank"));
+    }
+
+    @Test
+    void givenNonNullValue_whenRequireNotNullOrBlank_thenComplete() {
+        assertDoesNotThrow(() -> DomainValidation.requireNotNullOrBlank("John", "userName"));
+    }
 }

@@ -20,7 +20,7 @@ public final class DomainValidation {
     }
 
     public static <T> void requireNonNull(T obj, String fieldValue) {
-        Objects.requireNonNull(obj, fieldValue + "must not be null");
+        Objects.requireNonNull(obj, fieldValue + " must not be null");
     }
 
     public static void requireNotNullOrBlank(String value, String fieldName) {
