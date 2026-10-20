@@ -1,7 +1,7 @@
 package com.awbp.scheduling.domain;
 
-import com.awbp.common.domain.DomainValidation;
-import com.awbp.common.domain.TimeRange;
+import com.awbp.shared.domain.DomainValidation;
+import com.awbp.shared.domain.TimeRange;
 
 import java.time.Instant;
 import java.time.LocalDateTime;

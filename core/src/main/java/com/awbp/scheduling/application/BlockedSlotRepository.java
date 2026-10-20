@@ -2,7 +2,7 @@ package com.awbp.scheduling.application;
 
 
 import com.awbp.scheduling.domain.BlockedSlot;
-import com.awbp.common.domain.TimeRange;
+import com.awbp.shared.domain.TimeRange;
 
 import java.util.List;
 import java.util.Optional;

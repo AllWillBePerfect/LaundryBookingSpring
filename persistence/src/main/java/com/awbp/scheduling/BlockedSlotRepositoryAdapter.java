@@ -3,7 +3,7 @@ package com.awbp.scheduling;
 
 import com.awbp.scheduling.application.BlockedSlotRepository;
 import com.awbp.scheduling.domain.BlockedSlot;
-import com.awbp.common.domain.TimeRange;
+import com.awbp.shared.domain.TimeRange;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

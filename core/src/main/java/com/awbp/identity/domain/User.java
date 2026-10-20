@@ -1,7 +1,7 @@
 package com.awbp.identity.domain;
 
 
-import com.awbp.common.domain.DomainValidation;
+import com.awbp.shared.domain.DomainValidation;
 
 import java.time.Instant;
 

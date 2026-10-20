@@ -1,7 +1,7 @@
 package com.awbp.booking.command;
 
 
-import com.awbp.common.domain.DomainValidation;
+import com.awbp.shared.domain.DomainValidation;
 
 public record CancelBookingCommand(Long bookingId, Long userId) {
     public CancelBookingCommand {

@@ -1,4 +1,4 @@
-package com.awbp.common.domain;
+package com.awbp.shared.domain;
 
 import org.junit.jupiter.api.Test;
 

@@ -9,7 +9,7 @@ import com.awbp.booking.domain.BookingStatus;
 import com.awbp.scheduling.application.BlockedSlotRepository;
 import com.awbp.scheduling.application.MachineRepository;
 import com.awbp.scheduling.domain.Machine;
-import com.awbp.common.domain.TimeRange;
+import com.awbp.shared.domain.TimeRange;
 import com.awbp.exception.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

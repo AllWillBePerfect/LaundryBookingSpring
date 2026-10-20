@@ -2,7 +2,7 @@ package com.awbp.scheduling;
 
 import com.awbp.AbstractRepositoryIT;
 import com.awbp.scheduling.domain.BlockedSlot;
-import com.awbp.common.domain.TimeRange;
+import com.awbp.shared.domain.TimeRange;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

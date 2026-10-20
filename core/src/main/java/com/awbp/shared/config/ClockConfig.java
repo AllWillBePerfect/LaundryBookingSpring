@@ -1,4 +1,4 @@
-package com.awbp.common.config;
+package com.awbp.shared.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
