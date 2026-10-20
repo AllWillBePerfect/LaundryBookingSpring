@@ -5,7 +5,7 @@ import com.awbp.identity.domain.TokenPair;
 import com.awbp.config.SecurityConfig;
 import com.awbp.exception.InvalidCredentialsException;
 import com.awbp.exception.UserAlreadyExistsException;
-import com.awbp.security.JwtTokenProvider;
+import com.awbp.identity.security.JwtTokenProvider;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;

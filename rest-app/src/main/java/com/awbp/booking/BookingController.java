@@ -4,7 +4,7 @@ import com.awbp.booking.application.BookingService;
 import com.awbp.booking.command.CancelBookingCommand;
 import com.awbp.booking.command.CreateBookingCommand;
 import com.awbp.booking.command.SubmitPaymentCommand;
-import com.awbp.security.AuthenticatedUser;
+import com.awbp.identity.security.AuthenticatedUser;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

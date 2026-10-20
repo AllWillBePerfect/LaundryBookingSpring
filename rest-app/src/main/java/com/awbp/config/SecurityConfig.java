@@ -1,6 +1,6 @@
 package com.awbp.config;
 
-import com.awbp.security.JwtAuthenticationFilter;
+import com.awbp.identity.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.awbp.security;
+package com.awbp.identity.security;
 
 import com.awbp.identity.domain.UserRole;
 

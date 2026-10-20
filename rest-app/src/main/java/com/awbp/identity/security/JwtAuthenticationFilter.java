@@ -1,4 +1,4 @@
-package com.awbp.security;
+package com.awbp.identity.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

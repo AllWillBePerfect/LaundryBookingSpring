@@ -2,7 +2,7 @@ package com.awbp.booking;
 
 import com.awbp.booking.application.BookingService;
 import com.awbp.booking.command.ReviewBookingCommand;
-import com.awbp.security.AuthenticatedUser;
+import com.awbp.identity.security.AuthenticatedUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
