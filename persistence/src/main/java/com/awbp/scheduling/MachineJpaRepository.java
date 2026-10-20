@@ -1,4 +1,4 @@
-package com.awbp.machine;
+package com.awbp.scheduling;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

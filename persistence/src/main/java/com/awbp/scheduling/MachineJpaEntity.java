@@ -1,4 +1,4 @@
-package com.awbp.machine;
+package com.awbp.scheduling;
 
 import jakarta.persistence.*;
 import lombok.*;

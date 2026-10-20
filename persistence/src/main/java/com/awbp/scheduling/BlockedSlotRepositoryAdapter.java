@@ -1,4 +1,4 @@
-package com.awbp.booking;
+package com.awbp.scheduling;
 
 
 import com.awbp.scheduling.application.BlockedSlotRepository;

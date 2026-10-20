@@ -1,4 +1,4 @@
-package com.awbp.booking;
+package com.awbp.scheduling;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

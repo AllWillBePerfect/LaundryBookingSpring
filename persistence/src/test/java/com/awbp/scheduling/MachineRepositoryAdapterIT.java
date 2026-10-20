@@ -1,4 +1,4 @@
-package com.awbp.machine;
+package com.awbp.scheduling;
 
 import com.awbp.AbstractRepositoryIT;
 import com.awbp.scheduling.domain.Machine;
