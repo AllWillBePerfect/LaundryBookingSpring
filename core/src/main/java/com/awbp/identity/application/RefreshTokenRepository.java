@@ -1,4 +1,6 @@
-package com.awbp.common.security;
+package com.awbp.identity.application;
+
+import com.awbp.identity.domain.RefreshToken;
 
 import java.time.Instant;
 import java.util.Optional;

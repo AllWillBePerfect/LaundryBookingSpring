@@ -1,6 +1,6 @@
 package com.awbp.security;
 
-import com.awbp.common.security.TokenHasher;
+import com.awbp.identity.application.TokenHasher;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;

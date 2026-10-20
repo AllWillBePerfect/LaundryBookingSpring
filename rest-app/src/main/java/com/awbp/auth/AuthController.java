@@ -1,7 +1,7 @@
 package com.awbp.auth;
 
-import com.awbp.common.security.AuthService;
-import com.awbp.common.security.TokenPair;
+import com.awbp.identity.application.AuthService;
+import com.awbp.identity.domain.TokenPair;
 import com.awbp.security.RefreshRequest;
 import com.awbp.security.TokenResponse;
 import jakarta.validation.Valid;

@@ -1,7 +1,7 @@
 package com.awbp.secure;
 
 import com.awbp.AbstractRepositoryIT;
-import com.awbp.common.security.RefreshToken;
+import com.awbp.identity.domain.RefreshToken;
 import com.awbp.user.UserJpaEntity;
 import com.awbp.user.UserJpaRepository;
 import com.awbp.user.UserRole;

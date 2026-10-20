@@ -1,6 +1,6 @@
 package com.awbp.security;
 
-import com.awbp.common.security.TokenPair;
+import com.awbp.identity.domain.TokenPair;
 
 public record TokenResponse(String accessToken, String refreshToken, String type) {
     public static TokenResponse of(TokenPair pair) {

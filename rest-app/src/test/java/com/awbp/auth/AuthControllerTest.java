@@ -1,7 +1,7 @@
 package com.awbp.auth;
 
-import com.awbp.common.security.AuthService;
-import com.awbp.common.security.TokenPair;
+import com.awbp.identity.application.AuthService;
+import com.awbp.identity.domain.TokenPair;
 import com.awbp.config.SecurityConfig;
 import com.awbp.exception.InvalidCredentialsException;
 import com.awbp.exception.UserAlreadyExistsException;

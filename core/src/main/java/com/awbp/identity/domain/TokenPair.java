@@ -1,3 +1,3 @@
-package com.awbp.common.security;
+package com.awbp.identity.domain;
 
 public record TokenPair(String accessToken, String refreshToken) {}

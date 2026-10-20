@@ -1,4 +1,4 @@
-package com.awbp.common.security;
+package com.awbp.identity.application;
 
 public interface RefreshTokenGenerator {
     String generate();

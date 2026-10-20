@@ -1,7 +1,7 @@
 package com.awbp.secure;
 
-import com.awbp.common.security.RefreshToken;
-import com.awbp.common.security.RefreshTokenRepository;
+import com.awbp.identity.domain.RefreshToken;
+import com.awbp.identity.application.RefreshTokenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

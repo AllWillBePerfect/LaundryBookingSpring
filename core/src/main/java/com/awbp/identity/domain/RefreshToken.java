@@ -1,4 +1,4 @@
-package com.awbp.common.security;
+package com.awbp.identity.domain;
 
 import java.time.Instant;
 

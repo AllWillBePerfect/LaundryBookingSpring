@@ -1,6 +1,6 @@
 package com.awbp.security;
 
-import com.awbp.common.security.RefreshTokenGenerator;
+import com.awbp.identity.application.RefreshTokenGenerator;
 import org.springframework.stereotype.Component;
 
 import java.security.SecureRandom;
