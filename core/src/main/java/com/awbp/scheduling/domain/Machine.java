@@ -1,4 +1,4 @@
-package com.awbp.booking.machine.domain;
+package com.awbp.scheduling.domain;
 
 import java.time.Instant;
 

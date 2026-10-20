@@ -2,8 +2,8 @@ package com.awbp.config;
 
 import com.awbp.auth.AuthProvider;
 import com.awbp.auth.AuthUserRepository;
-import com.awbp.booking.machine.application.MachineRepository;
-import com.awbp.booking.machine.domain.Machine;
+import com.awbp.scheduling.application.MachineRepository;
+import com.awbp.scheduling.domain.Machine;
 import com.awbp.user.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;

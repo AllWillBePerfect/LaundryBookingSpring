@@ -1,8 +1,8 @@
 package com.awbp.service.booking;
 
 import com.awbp.AbstractE2ETest;
-import com.awbp.booking.machine.application.MachineRepository;
-import com.awbp.booking.machine.domain.Machine;
+import com.awbp.scheduling.application.MachineRepository;
+import com.awbp.scheduling.domain.Machine;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

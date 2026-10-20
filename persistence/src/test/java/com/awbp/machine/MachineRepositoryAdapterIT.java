@@ -1,7 +1,7 @@
 package com.awbp.machine;
 
 import com.awbp.AbstractRepositoryIT;
-import com.awbp.booking.machine.domain.Machine;
+import com.awbp.scheduling.domain.Machine;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

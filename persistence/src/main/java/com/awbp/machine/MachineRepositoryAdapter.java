@@ -1,8 +1,8 @@
 package com.awbp.machine;
 
 
-import com.awbp.booking.machine.application.MachineRepository;
-import com.awbp.booking.machine.domain.Machine;
+import com.awbp.scheduling.application.MachineRepository;
+import com.awbp.scheduling.domain.Machine;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

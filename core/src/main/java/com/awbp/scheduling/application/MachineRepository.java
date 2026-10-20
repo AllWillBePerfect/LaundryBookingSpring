@@ -1,6 +1,6 @@
-package com.awbp.booking.machine.application;
+package com.awbp.scheduling.application;
 
-import com.awbp.booking.machine.domain.Machine;
+import com.awbp.scheduling.domain.Machine;
 
 import java.util.List;
 import java.util.Optional;
