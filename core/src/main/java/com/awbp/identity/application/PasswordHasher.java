@@ -1,4 +1,4 @@
-package com.awbp.auth;
+package com.awbp.identity.application;
 
 public interface PasswordHasher {
     String hash(String rawPassword);

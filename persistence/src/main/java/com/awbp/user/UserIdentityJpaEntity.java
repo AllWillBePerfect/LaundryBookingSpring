@@ -1,6 +1,6 @@
 package com.awbp.user;
 
-import com.awbp.auth.AuthProvider;
+import com.awbp.identity.domain.AuthProvider;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

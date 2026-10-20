@@ -1,4 +1,4 @@
-package com.awbp.auth;
+package com.awbp.identity.domain;
 
 public enum AuthProvider {
     PASSWORD,

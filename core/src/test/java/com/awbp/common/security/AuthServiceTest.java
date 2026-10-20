@@ -1,11 +1,11 @@
 package com.awbp.common.security;
 
-import com.awbp.auth.AuthProvider;
-import com.awbp.auth.AuthUserRepository;
-import com.awbp.auth.PasswordHasher;
-import com.awbp.auth.TokenIssuer;
-import com.awbp.auth.UserAccount;
-import com.awbp.auth.UserIdentity;
+import com.awbp.identity.domain.AuthProvider;
+import com.awbp.identity.application.AuthUserRepository;
+import com.awbp.identity.application.PasswordHasher;
+import com.awbp.identity.application.TokenIssuer;
+import com.awbp.identity.domain.UserAccount;
+import com.awbp.identity.domain.UserIdentity;
 import com.awbp.exception.InvalidCredentialsException;
 import com.awbp.exception.InvalidRefreshTokenException;
 import com.awbp.exception.UserAlreadyExistsException;

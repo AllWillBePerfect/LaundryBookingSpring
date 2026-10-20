@@ -1,4 +1,4 @@
-package com.awbp.auth;
+package com.awbp.identity.application;
 
 import com.awbp.user.UserRole;
 

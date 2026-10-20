@@ -1,6 +1,6 @@
 package com.awbp.user;
 
-import com.awbp.auth.AuthProvider;
+import com.awbp.identity.domain.AuthProvider;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

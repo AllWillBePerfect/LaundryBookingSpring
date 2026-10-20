@@ -1,9 +1,14 @@
 package com.awbp.common.security;
 
-import com.awbp.auth.*;
 import com.awbp.exception.InvalidCredentialsException;
 import com.awbp.exception.InvalidRefreshTokenException;
 import com.awbp.exception.UserAlreadyExistsException;
+import com.awbp.identity.application.AuthUserRepository;
+import com.awbp.identity.application.PasswordHasher;
+import com.awbp.identity.application.TokenIssuer;
+import com.awbp.identity.domain.AuthProvider;
+import com.awbp.identity.domain.UserAccount;
+import com.awbp.identity.domain.UserIdentity;
 import com.awbp.user.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.awbp.security;
 
-import com.awbp.auth.PasswordHasher;
+import com.awbp.identity.application.PasswordHasher;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
