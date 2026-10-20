@@ -1,9 +1,7 @@
-package com.awbp.secure;
+package com.awbp.identity;
 
 import com.awbp.AbstractRepositoryIT;
 import com.awbp.identity.domain.RefreshToken;
-import com.awbp.user.UserJpaEntity;
-import com.awbp.user.UserJpaRepository;
 import com.awbp.identity.domain.UserRole;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

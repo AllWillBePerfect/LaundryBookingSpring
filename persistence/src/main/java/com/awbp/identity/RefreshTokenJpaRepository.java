@@ -1,4 +1,4 @@
-package com.awbp.secure;
+package com.awbp.identity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

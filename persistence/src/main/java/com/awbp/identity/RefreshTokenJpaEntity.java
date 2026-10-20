@@ -1,4 +1,4 @@
-package com.awbp.secure;
+package com.awbp.identity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

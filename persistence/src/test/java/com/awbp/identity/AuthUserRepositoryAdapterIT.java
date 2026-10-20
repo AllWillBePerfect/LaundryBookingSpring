@@ -1,11 +1,9 @@
-package com.awbp.auth;
+package com.awbp.identity;
 
 import com.awbp.AbstractRepositoryIT;
 import com.awbp.identity.domain.AuthProvider;
 import com.awbp.identity.domain.UserAccount;
 import com.awbp.identity.domain.UserIdentity;
-import com.awbp.user.UserIdentityJpaRepository;
-import com.awbp.user.UserJpaRepository;
 import com.awbp.identity.domain.UserRole;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.awbp.secure;
+package com.awbp.identity;
 
 import com.awbp.identity.domain.RefreshToken;
 import com.awbp.identity.application.RefreshTokenRepository;

@@ -1,4 +1,4 @@
-package com.awbp.user;
+package com.awbp.identity;
 
 import com.awbp.identity.domain.AuthProvider;
 import jakarta.persistence.*;

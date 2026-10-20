@@ -1,4 +1,4 @@
-package com.awbp.user;
+package com.awbp.identity;
 
 import com.awbp.identity.domain.UserRole;
 import jakarta.persistence.*;
