@@ -6,13 +6,9 @@ import com.awbp.booking.command.ReviewBookingCommand;
 import com.awbp.booking.command.SubmitPaymentCommand;
 import com.awbp.booking.domain.Booking;
 import com.awbp.booking.domain.BookingStatus;
-import com.awbp.scheduling.application.BlockedSlotRepository;
-import com.awbp.scheduling.application.MachineRepository;
-import com.awbp.scheduling.domain.Machine;
-import com.awbp.shared.domain.TimeRange;
-import com.awbp.scheduling.application.MachineInactiveException;
+import com.awbp.scheduling.SchedulingApi;
 import com.awbp.scheduling.application.MachineNotFoundException;
-import com.awbp.scheduling.application.SlotBlockedException;
+import com.awbp.shared.domain.TimeRange;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,6 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -46,11 +43,9 @@ class BookingServiceTest {
     private static final Instant NOW = Instant.parse("2026-01-01T09:00:00Z");
 
     @Mock
-    private MachineRepository machineRepository;
+    private SchedulingApi schedulingApi;
     @Mock
     private BookingRepository bookingRepository;
-    @Mock
-    private BlockedSlotRepository blockedSlotRepository;
 
     private final Clock clock = Clock.fixed(NOW, ZoneOffset.UTC);
 
@@ -58,12 +53,13 @@ class BookingServiceTest {
 
     @BeforeEach
     void setUp() {
-        service = new BookingService(machineRepository, bookingRepository, blockedSlotRepository, clock);
+        service = new BookingService(schedulingApi, bookingRepository, clock);
     }
 
     @Test
-    void givenMissingMachine_whenCreateBooking_thenThrownMachineNotFoundException() {
-        when(machineRepository.findById(MACHINE_ID)).thenReturn(Optional.empty());
+    void givenMachineUnavailable_whenCreateBooking_thenPropagatesSchedulingException() {
+        doThrow(new MachineNotFoundException(MACHINE_ID))
+                .when(schedulingApi).ensureMachineAvailable(eq(MACHINE_ID), any(TimeRange.class));
 
         assertThrows(
                 MachineNotFoundException.class,
@@ -74,34 +70,7 @@ class BookingServiceTest {
     }
 
     @Test
-    void givenInactiveMachine_whenCreateBooking_thenThrownMachineInactiveException() {
-        when(machineRepository.findById(MACHINE_ID)).thenReturn(Optional.of(inactiveMachine()));
-
-        assertThrows(
-                MachineInactiveException.class,
-                () -> service.createBooking(new CreateBookingCommand(USER_ID, MACHINE_ID, START))
-        );
-
-        verify(bookingRepository, never()).save(any());
-    }
-
-    @Test
-    void givenBlockedSlot_whenCreateBooking_thenThrownSlotBlockedException() {
-        when(machineRepository.findById(MACHINE_ID)).thenReturn(Optional.of(activeMachine()));
-        when(blockedSlotRepository.existsOverlapping(eq(MACHINE_ID), any(TimeRange.class))).thenReturn(true);
-
-        assertThrows(
-                SlotBlockedException.class,
-                () -> service.createBooking(new CreateBookingCommand(USER_ID, MACHINE_ID, START))
-        );
-
-        verify(bookingRepository, never()).save(any());
-    }
-
-    @Test
     void givenAlreadyBookedSlot_whenCreateBooking_thenThrownSlotAlreadyBookedException() {
-        when(machineRepository.findById(MACHINE_ID)).thenReturn(Optional.of(activeMachine()));
-        when(blockedSlotRepository.existsOverlapping(eq(MACHINE_ID), any(TimeRange.class))).thenReturn(false);
         when(bookingRepository.existsByMachineIdAndStartTime(MACHINE_ID, START)).thenReturn(true);
 
         assertThrows(
@@ -114,8 +83,6 @@ class BookingServiceTest {
 
     @Test
     void givenValidCommand_whenCreateBooking_thenSavesBookingWithCreatedStatus() {
-        when(machineRepository.findById(MACHINE_ID)).thenReturn(Optional.of(activeMachine()));
-        when(blockedSlotRepository.existsOverlapping(eq(MACHINE_ID), any(TimeRange.class))).thenReturn(false);
         when(bookingRepository.existsByMachineIdAndStartTime(MACHINE_ID, START)).thenReturn(false);
         when(bookingRepository.save(any(Booking.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
@@ -369,14 +336,6 @@ class BookingServiceTest {
         when(bookingRepository.findAllByStatus(BookingStatus.APPROVED)).thenReturn(bookings);
 
         assertEquals(bookings, service.getBookingsByStatus(BookingStatus.APPROVED));
-    }
-
-    private Machine activeMachine() {
-        return new Machine(MACHINE_ID, "Machine", "description", true, NOW);
-    }
-
-    private Machine inactiveMachine() {
-        return new Machine(MACHINE_ID, "Machine", "description", false, NOW);
     }
 
     private Booking bookingWithStatus(Long userId, BookingStatus status) {

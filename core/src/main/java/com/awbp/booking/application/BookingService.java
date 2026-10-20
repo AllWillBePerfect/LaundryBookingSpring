@@ -6,8 +6,7 @@ import com.awbp.booking.command.ReviewBookingCommand;
 import com.awbp.booking.command.SubmitPaymentCommand;
 import com.awbp.booking.domain.Booking;
 import com.awbp.booking.domain.BookingStatus;
-import com.awbp.scheduling.application.*;
-import com.awbp.scheduling.domain.Machine;
+import com.awbp.scheduling.SchedulingApi;
 import com.awbp.shared.domain.TimeRange;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,26 +24,17 @@ public class BookingService {
 
     private static final Duration DEFAULT_SLOT_DURATION = Duration.ofMinutes(90);
 
-    private final MachineRepository machineRepository;
+    private final SchedulingApi schedulingApi;
     private final BookingRepository bookingRepository;
-    private final BlockedSlotRepository blockedSlotRepository;
     private final Clock clock;
 
     @Transactional
     public Booking createBooking(CreateBookingCommand command) {
-        Machine machine = machineRepository.findById(command.machineId())
-                .orElseThrow(() -> new MachineNotFoundException(command.machineId()));
-
-        if (!machine.active()) {
-            throw new MachineInactiveException(command.machineId());
-        }
 
         LocalDateTime endTime = command.startTime().plus(DEFAULT_SLOT_DURATION);
         TimeRange timeRange = new TimeRange(command.startTime(), endTime);
 
-        if (blockedSlotRepository.existsOverlapping(command.machineId(), timeRange)) {
-            throw new SlotBlockedException();
-        }
+        schedulingApi.ensureMachineAvailable(command.machineId(), timeRange);
 
         if (bookingRepository.existsByMachineIdAndStartTime(command.machineId(), command.startTime())) {
             throw new SlotAlreadyBookedException();
