@@ -1,4 +1,4 @@
-package com.awbp.auth;
+package com.awbp.identity;
 
 import jakarta.validation.constraints.NotBlank;
 

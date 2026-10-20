@@ -1,4 +1,4 @@
-package com.awbp.auth;
+package com.awbp.identity;
 
 import com.awbp.identity.application.AuthService;
 import com.awbp.identity.domain.TokenPair;

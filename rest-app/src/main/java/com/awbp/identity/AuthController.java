@@ -1,9 +1,7 @@
-package com.awbp.auth;
+package com.awbp.identity;
 
 import com.awbp.identity.application.AuthService;
 import com.awbp.identity.domain.TokenPair;
-import com.awbp.security.RefreshRequest;
-import com.awbp.security.TokenResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
