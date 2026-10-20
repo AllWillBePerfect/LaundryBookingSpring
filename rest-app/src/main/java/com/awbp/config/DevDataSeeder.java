@@ -28,13 +28,6 @@ public class DevDataSeeder implements CommandLineRunner {
         seedMachines();
     }
 
-    /*private void seed(String username, String displayName, String rawPassword, UserRole role) {
-        if (authUserRepository.existsByUsername(username)) {
-            return;
-        }
-        authUserRepository.createUser(username, displayName, passwordEncoder.encode(rawPassword), role);
-    }*/
-
     private void seed(String username, String displayName, String rawPassword, UserRole role) {
         if (!authUserRepository.identityExists(AuthProvider.PASSWORD, username)) {
             authUserRepository.createUserWithPassword(
