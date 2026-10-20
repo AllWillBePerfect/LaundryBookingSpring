@@ -1,4 +1,4 @@
-package com.awbp.booking.domain;
+package com.awbp.scheduling.domain;
 
 import com.awbp.common.domain.DomainValidation;
 import com.awbp.common.domain.TimeRange;

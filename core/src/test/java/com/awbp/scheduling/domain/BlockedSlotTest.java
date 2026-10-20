@@ -1,4 +1,4 @@
-package com.awbp.booking.domain;
+package com.awbp.scheduling.domain;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

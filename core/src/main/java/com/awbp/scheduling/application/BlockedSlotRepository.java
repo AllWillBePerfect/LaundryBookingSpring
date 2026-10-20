@@ -1,7 +1,7 @@
-package com.awbp.booking.application;
+package com.awbp.scheduling.application;
 
 
-import com.awbp.booking.domain.BlockedSlot;
+import com.awbp.scheduling.domain.BlockedSlot;
 import com.awbp.common.domain.TimeRange;
 
 import java.util.List;

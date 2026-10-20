@@ -1,8 +1,8 @@
 package com.awbp.booking;
 
 
-import com.awbp.booking.application.BlockedSlotRepository;
-import com.awbp.booking.domain.BlockedSlot;
+import com.awbp.scheduling.application.BlockedSlotRepository;
+import com.awbp.scheduling.domain.BlockedSlot;
 import com.awbp.common.domain.TimeRange;
 import org.springframework.stereotype.Component;
 

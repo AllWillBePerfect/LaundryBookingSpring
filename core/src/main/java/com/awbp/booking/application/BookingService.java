@@ -6,6 +6,7 @@ import com.awbp.booking.command.ReviewBookingCommand;
 import com.awbp.booking.command.SubmitPaymentCommand;
 import com.awbp.booking.domain.Booking;
 import com.awbp.booking.domain.BookingStatus;
+import com.awbp.scheduling.application.BlockedSlotRepository;
 import com.awbp.scheduling.application.MachineRepository;
 import com.awbp.scheduling.domain.Machine;
 import com.awbp.common.domain.TimeRange;

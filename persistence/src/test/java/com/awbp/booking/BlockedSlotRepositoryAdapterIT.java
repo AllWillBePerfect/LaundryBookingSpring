@@ -1,7 +1,7 @@
 package com.awbp.booking;
 
 import com.awbp.AbstractRepositoryIT;
-import com.awbp.booking.domain.BlockedSlot;
+import com.awbp.scheduling.domain.BlockedSlot;
 import com.awbp.common.domain.TimeRange;
 import com.awbp.machine.MachineJpaEntity;
 import com.awbp.machine.MachineJpaRepository;
