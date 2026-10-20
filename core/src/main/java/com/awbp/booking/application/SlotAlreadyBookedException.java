@@ -1,4 +1,4 @@
-package com.awbp.exception;
+package com.awbp.booking.application;
 
 import com.awbp.shared.exception.LaundryBookingException;
 

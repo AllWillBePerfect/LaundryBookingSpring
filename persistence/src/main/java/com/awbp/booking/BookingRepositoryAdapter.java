@@ -3,7 +3,7 @@ package com.awbp.booking;
 import com.awbp.booking.application.BookingRepository;
 import com.awbp.booking.domain.Booking;
 import com.awbp.booking.domain.BookingStatus;
-import com.awbp.exception.SlotAlreadyBookedException;
+import com.awbp.booking.application.SlotAlreadyBookedException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,15 @@
 package com.awbp.exception;
 
+import com.awbp.booking.application.AccessDeniedToBookingException;
+import com.awbp.booking.application.BookingNotFoundException;
+import com.awbp.booking.application.InvalidBookingStateException;
+import com.awbp.booking.application.SlotAlreadyBookedException;
 import com.awbp.identity.application.InvalidCredentialsException;
 import com.awbp.identity.application.UserAlreadyExistsException;
+import com.awbp.scheduling.application.BlockedSlotNotFoundException;
+import com.awbp.scheduling.application.MachineInactiveException;
+import com.awbp.scheduling.application.MachineNotFoundException;
+import com.awbp.scheduling.application.SlotBlockedException;
 import com.awbp.shared.exception.LaundryBookingException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;

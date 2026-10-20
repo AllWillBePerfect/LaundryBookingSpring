@@ -3,7 +3,7 @@ package com.awbp.booking;
 import com.awbp.AbstractRepositoryIT;
 import com.awbp.booking.domain.Booking;
 import com.awbp.booking.domain.BookingStatus;
-import com.awbp.exception.SlotAlreadyBookedException;
+import com.awbp.booking.application.SlotAlreadyBookedException;
 import com.awbp.scheduling.MachineJpaEntity;
 import com.awbp.scheduling.MachineJpaRepository;
 import com.awbp.identity.UserJpaEntity;
