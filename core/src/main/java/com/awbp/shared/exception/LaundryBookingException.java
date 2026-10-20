@@ -1,4 +1,4 @@
-package com.awbp.exception;
+package com.awbp.shared.exception;
 
 public abstract class LaundryBookingException extends RuntimeException {
 

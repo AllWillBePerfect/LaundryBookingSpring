@@ -1,5 +1,8 @@
 package com.awbp.exception;
 
+import com.awbp.identity.application.InvalidCredentialsException;
+import com.awbp.identity.application.UserAlreadyExistsException;
+import com.awbp.shared.exception.LaundryBookingException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
