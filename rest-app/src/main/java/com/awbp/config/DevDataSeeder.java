@@ -4,7 +4,7 @@ import com.awbp.identity.domain.AuthProvider;
 import com.awbp.identity.application.AuthUserRepository;
 import com.awbp.scheduling.application.MachineRepository;
 import com.awbp.scheduling.domain.Machine;
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;

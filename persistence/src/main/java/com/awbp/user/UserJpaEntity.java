@@ -1,5 +1,6 @@
 package com.awbp.user;
 
+import com.awbp.identity.domain.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -4,7 +4,7 @@ import com.awbp.AbstractRepositoryIT;
 import com.awbp.identity.domain.RefreshToken;
 import com.awbp.user.UserJpaEntity;
 import com.awbp.user.UserJpaRepository;
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.BeforeEach;

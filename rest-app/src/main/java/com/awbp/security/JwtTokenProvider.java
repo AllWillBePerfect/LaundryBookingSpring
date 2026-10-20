@@ -1,7 +1,7 @@
 package com.awbp.security;
 
 
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;

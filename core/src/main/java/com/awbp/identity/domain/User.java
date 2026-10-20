@@ -1,4 +1,4 @@
-package com.awbp.user;
+package com.awbp.identity.domain;
 
 
 import com.awbp.common.domain.DomainValidation;

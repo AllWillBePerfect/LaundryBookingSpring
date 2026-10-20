@@ -3,7 +3,7 @@ package com.awbp.identity.application;
 import com.awbp.identity.domain.AuthProvider;
 import com.awbp.identity.domain.UserAccount;
 import com.awbp.identity.domain.UserIdentity;
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 
 import java.util.List;
 import java.util.Optional;

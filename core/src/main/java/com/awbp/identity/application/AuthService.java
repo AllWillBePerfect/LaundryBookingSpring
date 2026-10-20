@@ -4,7 +4,7 @@ import com.awbp.exception.InvalidCredentialsException;
 import com.awbp.exception.InvalidRefreshTokenException;
 import com.awbp.exception.UserAlreadyExistsException;
 import com.awbp.identity.domain.*;
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

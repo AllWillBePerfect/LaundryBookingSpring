@@ -5,6 +5,7 @@ import com.awbp.identity.application.AuthUserRepository;
 import com.awbp.identity.domain.AuthProvider;
 import com.awbp.identity.domain.UserAccount;
 import com.awbp.identity.domain.UserIdentity;
+import com.awbp.identity.domain.UserRole;
 import com.awbp.user.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

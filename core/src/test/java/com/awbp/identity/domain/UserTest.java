@@ -1,4 +1,4 @@
-package com.awbp.user;
+package com.awbp.identity.domain;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

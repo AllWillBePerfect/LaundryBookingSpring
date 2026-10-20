@@ -6,7 +6,7 @@ import com.awbp.booking.domain.BookingStatus;
 import com.awbp.config.SecurityConfig;
 import com.awbp.security.AuthenticatedUser;
 import com.awbp.security.JwtTokenProvider;
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;

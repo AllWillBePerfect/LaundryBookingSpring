@@ -1,7 +1,7 @@
 package com.awbp.security;
 
 import com.awbp.identity.application.TokenIssuer;
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 import org.springframework.stereotype.Component;
 
 @Component

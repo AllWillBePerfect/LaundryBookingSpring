@@ -1,7 +1,5 @@
 package com.awbp.identity.domain;
 
-import com.awbp.user.UserRole;
-
 import java.time.Instant;
 
 public record UserAccount(

@@ -9,7 +9,7 @@ import com.awbp.exception.BookingNotFoundException;
 import com.awbp.exception.SlotAlreadyBookedException;
 import com.awbp.security.AuthenticatedUser;
 import com.awbp.security.JwtTokenProvider;
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;

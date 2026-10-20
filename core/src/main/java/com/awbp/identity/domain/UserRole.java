@@ -1,4 +1,4 @@
-package com.awbp.user;
+package com.awbp.identity.domain;
 
 public enum UserRole {
     USER,

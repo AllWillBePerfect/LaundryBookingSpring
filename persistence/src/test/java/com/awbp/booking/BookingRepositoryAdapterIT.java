@@ -8,7 +8,7 @@ import com.awbp.scheduling.MachineJpaEntity;
 import com.awbp.scheduling.MachineJpaRepository;
 import com.awbp.user.UserJpaEntity;
 import com.awbp.user.UserJpaRepository;
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -6,7 +6,7 @@ import com.awbp.identity.domain.UserAccount;
 import com.awbp.identity.domain.UserIdentity;
 import com.awbp.user.UserIdentityJpaRepository;
 import com.awbp.user.UserJpaRepository;
-import com.awbp.user.UserRole;
+import com.awbp.identity.domain.UserRole;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
